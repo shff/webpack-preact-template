@@ -6,7 +6,7 @@
     "build": "webpack --mode production"
   },
   "dependencies": {
-    "preact": "^8.5.2",
+    "preact": "^10.1.1",
     "tachyons": "^4.11.1"
   },
   "devDependencies": {
