@@ -3,7 +3,14 @@
   "scripts": {
     "serve": "webpack-dev-server --mode development --hot --inline",
     "start": "webpack --mode development",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "rebuild": "yarn clean && yarn build",
+    "clean": "rm -rf dist",
+    "prettify": "prettier --write src/*.js* src/**/*.js*",
+    "lint": "eslint src/*.js* src/**/*.js*",
+    "lint:css": "stylelint '**/*.less' '**/*.jsx' --syntax less",
+    "lint:watch": "esw src/*.js* src/**/*.js* -w --color --clear",
+    "test": "jasmine"
   },
   "dependencies": {
     "preact": "^10.1.1",
@@ -29,6 +36,19 @@
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.10.1"
   },
+  "optionalDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.9.0",
+    "eslint-friendly-formatter": "^4.0.1",
+    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.17.0",
+    "jasmine": "^3.5.0",
+    "prettier": "^1.19.1",
+    "stylelint": "^12.0.1",
+    "stylelint-config-standard": "^19.0.0"
+  },
   "babel": {
     "presets": [
       "@babel/preset-env"
@@ -48,5 +68,48 @@
     ">0.25%",
     "not ie 11",
     "not op_mini all"
-  ]
+  ],
+  "eslintConfig": {
+    "extends": [
+      "prettier",
+      "eslint:recommended",
+      "plugin:react/recommended",
+      "plugin:promise/recommended"
+    ],
+    "plugins": [
+      "prettier",
+      "react",
+      "promise"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint",
+      "ecmaVersion": 6,
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "modules": true
+      }
+    },
+    "globals": {
+      "document": true
+    },
+    "settings": {
+      "react": {
+        "pragma": "h"
+      }
+    },
+    "rules": {
+      "prettier/prettier": "error",
+      "promise/prefer-await-to-callbacks": "error",
+      "promise/prefer-await-to-then": "error",
+      "indent": "off",
+      "import/no-unresolved": "off",
+      "react/no-unknown-property": "off"
+    }
+  },
+  "stylelint": {
+    "processors": [
+      "stylelint-processor-html"
+    ],
+    "extends": "stylelint-config-standard"
+  }
 }
