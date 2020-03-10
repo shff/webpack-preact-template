@@ -10,7 +10,8 @@
     "lint": "eslint src/*.js* src/**/*.js*",
     "lint:css": "stylelint '**/*.less' '**/*.jsx' --syntax less",
     "lint:watch": "esw src/*.js* src/**/*.js* -w --color --clear",
-    "test": "jasmine"
+    "test": "jasmine",
+    "e2e": "cypress run -C false --config video=false,integrationFolder=src,supportFile=false,pluginsFile=false,testFiles=**/*.spec.js"
   },
   "dependencies": {
     "preact": "^10.2.1",
@@ -37,6 +38,7 @@
     "webpack-dev-server": "^3.10.1"
   },
   "optionalDependencies": {
+    "cypress": "^4.1.0",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.9.0",
     "eslint-friendly-formatter": "^4.0.1",
@@ -44,7 +46,9 @@
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.17.0",
+    "husky": "^4.2.3",
     "jasmine": "^3.5.0",
+    "lint-staged": "^10.0.8",
     "prettier": "^1.19.1",
     "stylelint": "^13.0.0",
     "stylelint-config-standard": "^19.0.0"
@@ -70,6 +74,10 @@
     "not op_mini all"
   ],
   "eslintConfig": {
+    "ignorePatterns": [
+      "**/*.spec.js",
+      "node_modules/"
+    ],
     "extends": [
       "prettier",
       "eslint:recommended",
@@ -111,5 +119,16 @@
       "stylelint-processor-html"
     ],
     "extends": "stylelint-config-standard"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts,css,json,md,vue}": [
+      "prettier --write",
+      "git add"
+    ]
   }
 }
