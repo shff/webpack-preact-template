@@ -1,4 +1,3 @@
-import "tachyons";
 import { h, render } from "preact";
 
 const node = document.querySelector("main");

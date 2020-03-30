@@ -14,8 +14,7 @@
     "e2e": "cypress run -C false --config video=false,integrationFolder=src,supportFile=false,pluginsFile=false,testFiles=**/*.spec.js"
   },
   "dependencies": {
-    "preact": "^10.3.4",
-    "tachyons": "^4.11.1"
+    "preact": "^10.3.4"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
@@ -27,7 +26,7 @@
     "babel-loader": "^8.1.0",
     "css-loader": "^3.4.2",
     "html-loader": "^1.0.0",
-    "html-webpack-plugin": "^4.0.2",
+    "html-webpack-plugin": "^4.0.3",
     "mini-css-extract-plugin": "^0.9.0",
     "purify-css": "^1.2.6",
     "purifycss-webpack": "^0.7.0",
@@ -42,13 +41,13 @@
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.1",
     "eslint-friendly-formatter": "^4.0.1",
-    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.19.0",
     "husky": "^4.2.3",
     "jasmine": "^3.5.0",
-    "lint-staged": "^10.0.9",
+    "lint-staged": "^10.0.10",
     "prettier": "^2.0.2",
     "stylelint": "^13.2.1",
     "stylelint-config-standard": "^20.0.0"
