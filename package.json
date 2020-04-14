@@ -37,7 +37,7 @@
     "webpack-dev-server": "^3.10.3"
   },
   "optionalDependencies": {
-    "cypress": "^4.3.0",
+    "cypress": "^4.4.0",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.1",
     "eslint-friendly-formatter": "^4.0.1",
