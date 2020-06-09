@@ -38,7 +38,7 @@
   },
   "optionalDependencies": {
     "cypress": "^4.7.0",
-    "eslint": "^6.8.0",
+    "eslint": "^7.2.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-friendly-formatter": "^4.0.1",
     "eslint-plugin-import": "^2.21.1",
