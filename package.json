@@ -14,7 +14,7 @@
     "e2e": "cypress run -C false --config video=false,integrationFolder=src,supportFile=false,pluginsFile=false,testFiles=**/*.spec.js"
   },
   "dependencies": {
-    "preact": "^10.4.6"
+    "preact": "^10.4.7"
   },
   "devDependencies": {
     "@babel/core": "^7.11.1",
