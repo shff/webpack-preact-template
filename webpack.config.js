@@ -5,14 +5,22 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const PurifyCSSPlugin = require("purifycss-webpack");
 
 module.exports = (env, argv) => ({
+  entry: "./src/index.tsx",
   module: {
     rules: [
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader"
-        }
+          loader: "babel-loader",
+        },
+      },
+      {
+        test: /\.tsx?$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "ts-loader",
+        },
       },
       {
         test: /\.html$/,
@@ -20,47 +28,41 @@ module.exports = (env, argv) => ({
           {
             loader: "html-loader",
             options: {
-              minimize: true
-            }
-          }
-        ]
+              minimize: true,
+            },
+          },
+        ],
       },
       {
         test: /\.css$/,
         use: [
           {
-            loader: MiniCssExtractPlugin.loader
+            loader: MiniCssExtractPlugin.loader,
           },
-          "css-loader"
-        ]
-      }
-    ]
+          "css-loader",
+        ],
+      },
+    ],
   },
   plugins: [
-    new HtmlWebPackPlugin(
-      {
-        template: "./src/index.html",
-        filename: "./index.html"
-      }
-    ),
-    new MiniCssExtractPlugin(
-      {
-        filename: "[name].css",
-        chunkFilename: "[id].css"
-      }
-    ),
-    new PurifyCSSPlugin(
-      {
-        paths: glob.sync(path.join(__dirname, "src/*")),
-        minimize: true,
-        purifyOptions: {
-          whitelist: argv.mode == "development" && ["*"]
-        }
-      }
-    )
+    new HtmlWebPackPlugin({
+      template: "./src/index.html",
+      filename: "./index.html",
+    }),
+    new MiniCssExtractPlugin({
+      filename: "[name].css",
+      chunkFilename: "[id].css",
+    }),
+    new PurifyCSSPlugin({
+      paths: glob.sync(path.join(__dirname, "src/*")),
+      minimize: true,
+      purifyOptions: {
+        whitelist: argv.mode == "development" && ["*"],
+      },
+    }),
   ],
   stats: {
     modules: false,
     children: false,
-  }
+  },
 });
