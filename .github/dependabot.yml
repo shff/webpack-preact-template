@@ -1,0 +1,23 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "04:00"
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: "@babel/plugin-proposal-optional-chaining"
+    versions:
+    - 7.12.13
+    - 7.12.16
+    - 7.13.12
+    - 7.13.8
+  - dependency-name: "@babel/plugin-transform-react-jsx"
+    versions:
+    - 7.12.13
+  - dependency-name: ts-loader
+    versions:
+    - 9.0.0
+    - 9.0.2
+    - 9.1.0
