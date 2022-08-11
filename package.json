@@ -36,7 +36,7 @@
     "uglifyjs-webpack-plugin": "^2.2.0",
     "webpack": "^4.46.0",
     "webpack-cli": "^4.10.0",
-    "webpack-dev-server": "^4.9.3"
+    "webpack-dev-server": "^4.10.0"
   },
   "optionalDependencies": {
     "@types/cypress": "^1.1.3",
