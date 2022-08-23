@@ -17,7 +17,7 @@
     "preact": "^10.10.6"
   },
   "devDependencies": {
-    "@babel/core": "^7.18.10",
+    "@babel/core": "^7.18.13",
     "@babel/plugin-proposal-optional-chaining": "^7.17.12",
     "@babel/plugin-transform-react-jsx": "^7.18.10",
     "@babel/plugin-transform-runtime": "^7.18.10",
